@@ -36,88 +36,8 @@
          ======================================================== -->
     <section id="view-landing" class="view active">
       <div class="landing-card glass-panel">
-        <div class="landing-badge">
-          <i class="fa-solid fa-sparkles"></i> Media Inovasi Pembelajaran Kurikulum Merdeka
-        </div>
-
-        <!-- Tokoh Animasi Kecil: "Nara" (Sahabat Literasi Interaktif) -->
-        <div class="mascot-container" onclick="interactWithMascot()" title="Ketuk Nara untuk mendengar sapaannya!">
-          <div id="mascot-bubble" class="mascot-speech-bubble">
-            <span>✨ Hai! Aku <b>Nara</b>. Yuk kenali gaya belajarmu bareng Pak Guru!</span>
-          </div>
-
-          <div class="mascot-svg-wrapper">
-            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Shadow base -->
-              <ellipse cx="60" cy="112" rx="36" ry="6" fill="#cbd5e1" opacity="0.4"/>
-              
-              <!-- Left arm holding pencil -->
-              <g class="mascot-arm-left">
-                <rect x="22" y="66" width="14" height="24" rx="7" fill="#bbf7d0" transform="rotate(25 22 66)"/>
-                <!-- Pencil -->
-                <rect x="18" y="52" width="6" height="22" rx="2" fill="#fde047" transform="rotate(-15 18 52)"/>
-                <polygon points="17,50 23,48 20,40" fill="#f97316"/>
-                <circle cx="20" cy="41" r="1.5" fill="#1e293b"/>
-              </g>
-
-              <!-- Main Body -->
-              <rect x="30" y="38" width="60" height="66" rx="28" fill="url(#naraGradient)" stroke="#86efac" stroke-width="2"/>
-              <ellipse cx="60" cy="74" rx="22" ry="24" fill="#ffffff" opacity="0.65"/>
-
-              <!-- Cute Feet -->
-              <ellipse cx="46" cy="105" rx="9" ry="6" fill="#86efac"/>
-              <ellipse cx="74" cy="105" rx="9" ry="6" fill="#86efac"/>
-
-              <!-- Rosy Cheeks -->
-              <circle cx="41" cy="70" r="5.5" fill="#fbcfe8" opacity="0.85"/>
-              <circle cx="79" cy="70" r="5.5" fill="#fbcfe8" opacity="0.85"/>
-
-              <!-- Blinking Eyes -->
-              <g class="mascot-eye">
-                <!-- Left eye -->
-                <ellipse cx="48" cy="62" rx="4.5" ry="6" fill="#1e293b"/>
-                <circle cx="46.5" cy="59.5" r="1.8" fill="#ffffff"/>
-                <circle cx="49.5" cy="63.5" r="0.9" fill="#ffffff"/>
-                <!-- Right eye -->
-                <ellipse cx="72" cy="62" rx="4.5" ry="6" fill="#1e293b"/>
-                <circle cx="70.5" cy="59.5" r="1.8" fill="#ffffff"/>
-                <circle cx="73.5" cy="63.5" r="0.9" fill="#ffffff"/>
-              </g>
-
-              <!-- Gentle Smile -->
-              <path d="M54 70 C57 74, 63 74, 66 70" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-
-              <!-- Academic Glasses -->
-              <circle cx="48" cy="62" r="8" stroke="#38bdf8" stroke-width="1.8" fill="none" opacity="0.75"/>
-              <circle cx="72" cy="62" r="8" stroke="#38bdf8" stroke-width="1.8" fill="none" opacity="0.75"/>
-              <line x1="56" y1="62" x2="64" y2="62" stroke="#38bdf8" stroke-width="1.8" opacity="0.75"/>
-
-              <!-- Waving Right Arm -->
-              <g class="mascot-arm-wave">
-                <rect x="84" y="60" width="14" height="26" rx="7" fill="#bbf7d0" transform="rotate(-40 84 60)"/>
-                <circle cx="98" cy="50" r="7" fill="#bbf7d0"/>
-              </g>
-
-              <!-- Graduation Cap -->
-              <polygon points="60,16 96,28 60,38 24,28" fill="#1e3a5f"/>
-              <rect x="42" y="32" width="36" height="10" rx="3" fill="#0f172a"/>
-              <!-- Swaying Tassel -->
-              <g class="mascot-tassel">
-                <path d="M60 27 Q78 30 84 46" stroke="#f59e0b" stroke-width="2.2" fill="none"/>
-                <circle cx="84" cy="48" r="3.5" fill="#f59e0b"/>
-              </g>
-
-              <defs>
-                <linearGradient id="naraGradient" x1="30" y1="38" x2="90" y2="104" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#dcfce7"/>
-                  <stop offset="1" stop-color="#a7f3d0"/>
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
-
-        <div class="hero-icon-wrapper" style="display: none;">
+        <!-- Hero Icon Header -->
+        <div class="hero-icon-wrapper">
           <div class="hero-icon-circle">
             <i class="fa-solid fa-comments"></i>
           </div>
@@ -298,7 +218,7 @@
               </div>
 
               <div class="chat-contact-info">
-                <h3 class="contact-name">Pak Guru Bahasa Indonesia</h3>
+                <h3 class="contact-name">Guru Bahasa Indonesia</h3>
                 <span id="chat-status-text" class="contact-status">online</span>
               </div>
 
@@ -331,8 +251,8 @@
                   <polygon points="60,18 90,30 60,40 30,30" fill="#1e3a5f"/>
                 </svg>
               </div>
-              <span id="mini-mascot-text" class="mini-mascot-text">Nara: "Jawab dengan santai & jujur yaa! ✨"</span>
-              <span class="mini-mascot-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Teman Belajar</span>
+              <span id="mini-mascot-text" class="mini-mascot-text">"Jawab dengan santai & jujur sesuai dirimu ya! ✨"</span>
+              <span class="mini-mascot-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Petunjuk</span>
             </div>
 
             <!-- Scrollable Chat Body -->
@@ -352,7 +272,7 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
               </div>
-              <span class="typing-text">Pak Guru sedang mengetik...</span>
+              <span class="typing-text">Guru sedang mengetik...</span>
             </div>
 
             <!-- Bottom Interaction Area: Multiple Choice Reply Cards -->
@@ -491,6 +411,9 @@
             </button>
             <button class="btn btn-sm btn-outline" onclick="window.print()">
               <i class="fa-solid fa-print"></i> Cetak Dokumen
+            </button>
+            <button class="btn btn-sm btn-outline" onclick="changeTeacherPinPrompt()">
+              <i class="fa-solid fa-key"></i> Ubah PIN Guru
             </button>
             <button class="btn btn-sm btn-danger-soft" onclick="logoutTeacher()">
               <i class="fa-solid fa-right-from-bracket"></i> Keluar
@@ -634,7 +557,7 @@
 
 
   <!-- ========================================================
-       MODAL 1: VERIFIKASI PIN GURU (PIN: 55555)
+       MODAL 1: VERIFIKASI PIN GURU
        ======================================================== -->
   <div id="pin-modal" class="modal-overlay hidden">
     <div class="pin-modal-card glass-panel">
@@ -656,12 +579,8 @@
           <input type="password" maxlength="1" class="pin-digit" oninput="onPinInput(this, 4)" onkeydown="onPinKeyDown(this, event, 4)">
         </div>
 
-        <div id="pin-error-msg" class="pin-error hidden">
-          <i class="fa-solid fa-circle-xmark"></i> PIN salah! Silakan coba lagi.
-        </div>
-
-        <div class="pin-hint-box">
-          <i class="fa-solid fa-key"></i> Catatan Verifikasi: Gunakan PIN <b>55555</b>
+        <div id="pin-error-msg" class="pin-error hidden" style="margin-bottom: 18px;">
+          <i class="fa-solid fa-circle-xmark"></i> PIN salah! Akses ditolak.
         </div>
 
         <div class="pin-button-actions">

@@ -719,10 +719,10 @@ function interactWithMascot() {
 }
 
 const MINI_MASCOT_QUOTES = [
-  "Nara: 'Sedikit demi sedikit, lama-lama menjadi bukit! Semangat! 💪'",
-  "Nara: 'Jawaban jujurmu sangat membantu Pak Guru merancang kelas seru! 😊'",
-  "Nara: 'Fokus dan rileks yaa, kamu melakukannya dengan sangat baik! ✨'",
-  "Nara: 'Tetap santai, sebentar lagi kamu akan tahu profil belajarmu! 🎯'"
+  "Tips: 'Sedikit demi sedikit, lama-lama menjadi bukit! Semangat! 💪'",
+  "Tips: 'Jawaban jujurmu sangat membantu Guru merancang kelas yang seru! 😊'",
+  "Tips: 'Fokus dan rileks yaa, kamu melakukannya dengan sangat baik! ✨'",
+  "Tips: 'Tetap santai, sebentar lagi kamu akan tahu profil belajarmu! 🎯'"
 ];
 let miniMascotIndex = 0;
 
@@ -782,7 +782,7 @@ function handleStudentAnswer(questionId, selectedKey, selectedLabel) {
       appendMascotMilestone("Aspek 1 Selesai! 🎉", "Perasaan & kesiapan emosimu sudah tercatat dengan baik. Sekarang yuk intip kebiasaan belajarmu di rumah!");
       playSound('pop');
       const miniText = document.getElementById('mini-mascot-text');
-      if (miniText) miniText.textContent = "Nara: 'Aspek 1 selesai! Lanjut ke aktivitas rumah ya! 🏠'";
+      if (miniText) miniText.textContent = "Tips: 'Aspek 1 selesai! Lanjut ke aktivitas rumah ya! 🏠'";
     }, 400);
   } else if (questionId === 10) {
     delayNext = 1400;
@@ -790,7 +790,7 @@ function handleStudentAnswer(questionId, selectedKey, selectedLabel) {
       appendMascotMilestone("Hebat, 10 Soal Berhasil! 🏠", "Kemandirian belajarmu keren banget! Lanjut yuk ke kondisi lingkungan belajar.");
       playSound('pop');
       const miniText = document.getElementById('mini-mascot-text');
-      if (miniText) miniText.textContent = "Nara: '10 soal selesai! Keren banget! 🌟'";
+      if (miniText) miniText.textContent = "Tips: '10 soal selesai! Keren banget! 🌟'";
     }, 400);
   } else if (questionId === 15) {
     delayNext = 1400;
@@ -798,7 +798,7 @@ function handleStudentAnswer(questionId, selectedKey, selectedLabel) {
       appendMascotMilestone("Lebih dari Setengah Jalan! 🌟", "Kamu luar biasa fokus! Sekarang giliran obrolan seru tentang pergaulan teman kelas.");
       playSound('pop');
       const miniText = document.getElementById('mini-mascot-text');
-      if (miniText) miniText.textContent = "Nara: 'Sudah lebih dari setengah jalan! Tetap semangat! 👥'";
+      if (miniText) miniText.textContent = "Tips: 'Sudah lebih dari setengah jalan! Tetap semangat! 👥'";
     }, 400);
   } else if (questionId === 20) {
     delayNext = 1400;
@@ -806,7 +806,7 @@ function handleStudentAnswer(questionId, selectedKey, selectedLabel) {
       appendMascotMilestone("5 Soal Terakhir Menuju Garis Akhir! 🎨", "Saatnya menentukan preferensi karya dan gaya belajar Bahasa Indonesia paling asik buatmu!");
       playSound('pop');
       const miniText = document.getElementById('mini-mascot-text');
-      if (miniText) miniText.textContent = "Nara: '5 soal terakhir! Pilih minat Bahasa Indonesia favoritmu! 🎨'";
+      if (miniText) miniText.textContent = "Tips: '5 soal terakhir! Pilih minat Bahasa Indonesia favoritmu! 🎨'";
     }, 400);
   } else {
     // Micro response ramah dari Guru sesekali
@@ -1072,9 +1072,33 @@ function finishStudentSession() {
 }
 
 // ========================================================
-// 8. ALUR PORTAL GURU & VERIFIKASI PIN (PIN: 55555)
+// 8. ALUR PORTAL GURU & VERIFIKASI PIN RAHASIA
 // ========================================================
-const TEACHER_SECRET_PIN = "55555";
+const DEFAULT_TEACHER_PIN = "55555";
+
+function getTeacherPin() {
+  return localStorage.getItem('TEACHER_CUSTOM_PIN') || DEFAULT_TEACHER_PIN;
+}
+
+function changeTeacherPinPrompt() {
+  const currentPin = getTeacherPin();
+  const oldInput = prompt("Verifikasi Keamanan Guru:\nMasukkan PIN saat ini:");
+  if (oldInput === null) return;
+  if (oldInput.trim() !== currentPin) {
+    alert("PIN lama tidak sesuai! Gagal mengubah PIN.");
+    return;
+  }
+
+  const newPin = prompt("Masukkan 5 digit PIN baru Anda (hanya angka):");
+  if (newPin === null) return;
+  if (!/^\d{5}$/.test(newPin.trim())) {
+    alert("PIN baru harus terdiri dari tepat 5 digit angka! (contoh: 12345)");
+    return;
+  }
+
+  localStorage.setItem('TEACHER_CUSTOM_PIN', newPin.trim());
+  alert("PIN Portal Guru berhasil diperbarui! Harap simpan baik-baik PIN rahasia Anda.");
+}
 
 function openTeacherPinModal() {
   const modal = document.getElementById('pin-modal');
@@ -1116,7 +1140,9 @@ function verifyTeacherPin(event) {
   let enteredPin = "";
   digits.forEach(d => enteredPin += d.value);
 
-  if (enteredPin === TEACHER_SECRET_PIN) {
+  const validPin = getTeacherPin();
+
+  if (enteredPin === validPin) {
     closeTeacherPinModal();
     navigateTo('view-teacher-portal');
     renderTeacherDashboard();
